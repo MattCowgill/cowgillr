@@ -1,5 +1,5 @@
 cowgill_edit_makevars <- function() {
-  ask <- utils::askYesNo("Update Makevars?")
+  ask <- ask_yes_no("Update Makevars?")
   if (ask) {
     make_text <- c("HOMEBREW_LOC=/opt/homebrew",
                    "LLVM_LOC=$(HOMEBREW_LOC)/opt/llvm",
@@ -15,7 +15,7 @@ cowgill_edit_makevars <- function() {
     proceed <- TRUE
 
     if (fs::file_exists(make_loc)) {
-      proceed <- utils::askYesNo("Makevars already exists. Overwite it?")
+      proceed <- ask_yes_no("Makevars already exists. Overwite it?")
     }
 
     if (proceed) {

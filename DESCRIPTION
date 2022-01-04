@@ -13,6 +13,10 @@ Imports:
     fs,
     remotes
 Suggests: 
-    rsthemes,
+    rsthemes (>= 0.3.1),
     rio,
-    extrafont
+    extrafont,
+    testthat (>= 3.0.0)
+Remotes: 
+    gadenbuie/rsthemes
+Config/testthat/edition: 3

@@ -1,6 +1,6 @@
 cowgill_edit_rprofile <- function() {
 
-  ask <- utils::askYesNo("Update Rprofile?")
+  ask <- ask_yes_no("Update Rprofile?")
   if (ask) {
     rprof_text <- c("if (utils::packageVersion(\"rlang\") > 0.5) {",
                     "  rlang::global_handle()",
@@ -47,7 +47,7 @@ cowgill_edit_rprofile <- function() {
     proceed <- TRUE
 
     if (fs::file_exists(rprof_loc)) {
-      proceed <- utils::askYesNo("Rprofile already exists. Overwite it?")
+      proceed <- ask_yes_no("Rprofile already exists. Overwite it?")
     }
 
     if (proceed) {
