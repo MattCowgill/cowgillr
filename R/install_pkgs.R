@@ -83,16 +83,9 @@ cowgill_install_cran_packages <- function() {
     "rio"
   )
 
-  cran_repo <- getOption("repos")[["CRAN"]]
-  if (is.null(cran_repo[1])) {
-    cran_repo <- c("https://cran.rstudio.com/")
-  }
-
-  names(cran_repo) <- "CRAN"
-
   if (interactive()) {
     remotes::install_cran(pkgs = packages,
-                          repos = cran_repo,
+                          repos = cran_repo(),
                           type = "binary",
                           dependencies = TRUE)
   }

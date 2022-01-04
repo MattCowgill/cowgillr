@@ -13,7 +13,7 @@ cowgill_setup <- function() {
   cowgill_install_packages()
 
   if (requireNamespace("rio", quietly = TRUE)) {
-    rio::install_formats()
+    rio::install_formats(repos = cran_repo())
   }
 
   if (interactive()) {
@@ -35,4 +35,15 @@ cowgill_setup <- function() {
   cowgill_edit_rprofile()
   cowgill_edit_makevars()
   invisible(TRUE)
+}
+
+cran_repo <- function() {
+  cran_repo <- getOption("repos")[["CRAN"]]
+  if (is.null(cran_repo[1])) {
+    cran_repo <- c("https://cran.rstudio.com/")
+  }
+
+  names(cran_repo) <- "CRAN"
+
+  cran_repo
 }
