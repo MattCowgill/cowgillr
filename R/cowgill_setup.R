@@ -13,8 +13,10 @@ cowgill_setup <- function() {
   cowgill_install_packages()
 
   if (requireNamespace("rio", quietly = TRUE)) {
-    rio::install_formats(repos = cran_repo(),
-                         type = "binary")
+    if (interactive()) {
+      rio::install_formats(repos = cran_repo(),
+                           type = "binary")
+    }
   }
 
   if (interactive()) {
