@@ -35,8 +35,10 @@ cowgill_setup <- function() {
     ))
   }
 
-  cowgill_edit_rprofile()
-  cowgill_edit_makevars()
+  if (interactive()) {
+    cowgill_edit_rprofile()
+    cowgill_edit_makevars()
+  }
   invisible(TRUE)
 }
 
