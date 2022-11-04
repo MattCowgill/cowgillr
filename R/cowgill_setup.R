@@ -26,6 +26,7 @@ cowgill_setup <- function() {
   }
 
   if (requireNamespace("extrafont", quietly = TRUE)) {
+    stopifnot(packageVersion("Rttf2pt1") == "1.3.8")
     print("Importing fonts...")
     suppressMessages(suppressWarnings(
       extrafont::font_import(prompt = FALSE)

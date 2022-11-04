@@ -27,6 +27,7 @@ cowgill_install_cran_packages <- function() {
 
   packages <- c(
     "devtools",
+    "AWR.athena",
     "usethis",
     "purrr",
     "purrrlyr",
@@ -111,7 +112,7 @@ cowgill_install_github_packages <- function() {
 
   out <- remotes::install_github(repo = packages,
          dependencies = TRUE,
-         upgrade = "always",
+         upgrade = "never",
          type = "binary")
 
   invisible(return(TRUE))
