@@ -81,7 +81,9 @@ cowgill_install_cran_packages <- function() {
     "slider",
     "zoo",
     "sf",
-    "rio"
+    "rio",
+    "fy",
+    "geomtextpath"
   )
 
   if (interactive()) {
@@ -89,6 +91,11 @@ cowgill_install_cran_packages <- function() {
                           repos = cran_repo(),
                           type = "binary",
                           dependencies = TRUE)
+
+    remotes::install_version("AWR.Athena",
+                             "2.0.7.0",
+                             repos = cran_repo(),
+                             dependencies = TRUE)
   }
 
   invisible(return(TRUE))
@@ -100,14 +107,15 @@ cowgill_install_github_packages <- function() {
     "MattCowgill/ggannotate",
     "MattCowgill/readabs",
     "MattCowgill/readrba",
-    "MattCowgill/ggrichlegend",
+    "MattCowgill/ggdirectlabel",
     "MattCowgill/auseconhist",
     "grattan/grattantheme",
     "runapp-aus/strayr",
     "wfmackey/absmapsdata",
     "wfmackey/abscorr",
     "noamross/redoc",
-    "gadenbuie/rsthemes"
+    "gadenbuie/rsthemes",
+    "SEEK-Jobs/seektheme"
   )
 
   out <- remotes::install_github(repo = packages,
